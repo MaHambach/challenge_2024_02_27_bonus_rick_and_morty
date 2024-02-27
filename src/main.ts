@@ -2958,3 +2958,11 @@ function namesAndOrigins(characters: RickAndMortyCharacter[]): NameOrigin[]{
     });
 }
 
+function rot13(str:string) {
+    return str.replace(/[a-zA-Z]/g, function(char) {
+        let charCode = char.charCodeAt(0);
+        let offset = charCode <= 90 ? 65 : 97;
+        return String.fromCharCode((charCode - offset + 13) % 26 + offset);
+    });
+}
+console.log(rot13('Va gur ryringbef, gur rkgebireg ybbxf ng gur BGURE thl\'f fubrf.'));
